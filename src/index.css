@@ -1,12 +1,20 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    @apply h-dvh overflow-hidden;
+  }
+
   :root {
-    @apply text-[rgba(255,255,255,0.87)] bg-[#242424] font-sans;
+    @apply text-[rgba(255,255,255,0.87)] bg-[#242424] font-sans h-dvh overflow-hidden;
   }
 
   body {
-    @apply grid place-items-center min-w-[320px] min-h-screen relative m-0 p-4 sm:p-6;
+    @apply h-dvh w-screen grid place-items-center overflow-hidden m-0 p-4 sm:p-6;
+  }
+
+  #root {
+    @apply w-full h-full overflow-auto flex items-center justify-center;
   }
 }
 
