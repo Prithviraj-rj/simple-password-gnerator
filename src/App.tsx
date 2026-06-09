@@ -25,14 +25,13 @@ export function App() {
   });
 
   const handleGetGreet = async () => {
-    let url = `http://localhost:3000/api/hello`;
-    if (input) {
-      url += `/${input}`;
-    }
-    const res = await fetch(url, { method: "GET" });
+    const url = new URL(
+      `/api/hello${input ? `/${encodeURIComponent(input)}` : ""}`,
+      window.location.origin,
+    );
+    const res = await fetch(url.toString(), { method: "GET" });
     const data = await res.json();
-    // console.log(data.message);
-    setGreet({ message: data.message, input: "gtfout" });
+    setGreet({ message: data.message, input });
   };
 
   return (
