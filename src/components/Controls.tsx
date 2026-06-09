@@ -20,59 +20,62 @@ export default function Controls({
   passwordGenerator,
 }: ControlsProps) {
   return (
-    <div className="flex item-center justify-between mt-2 ">
-      <div className="flex items-center gap-x-1">
-        <input
-          type="range"
-          id="inputLength"
-          max={40}
-          min={5}
-          value={length}
-          onChange={(
-            e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
-          ) => {
-            setLength(Number(e.target.value));
-            // console.log(e.target.value);
-            // console.log(typeof e.target.value);
-          }}
-          className="cursor-pointer p-2 "
-        />
-        <label htmlFor="inputlengt" className="p-1">
-          length: {length}
-        </label>
-      </div>
-      <div className="flex items-center gap-x-1">
-        <input
-          type="checkbox"
-          id="charbox"
-          defaultChecked={hasChar}
-          onChange={() => setHasChar((old) => !old)}
-          className="cursor-pointer p-2"
-        />
-        <label htmlFor="charbox" className="p-1">
-          : character
-        </label>
-      </div>
-      <div className="flex items-center gap-x-1">
-        <input
-          type="checkbox"
-          id="numbox"
-          defaultChecked={hasNum}
-          onChange={() => setHasNum((old) => !old)}
-          className="cursor-pointer p-2 "
-        />
-        <label
-          htmlFor="numbox"
-          className="p-1 transition-all duration-150 active:scale-95  "
-        >
-          : Numbers{" "}
-        </label>
+    <div className="flex flex-col gap-3 sm:gap-2 sm:items-center sm:justify-between mt-3 sm:mt-2 w-full max-w-2xl px-4">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
+        <div className="flex items-center gap-x-2">
+          <input
+            type="range"
+            id="inputLength"
+            max={40}
+            min={5}
+            value={length}
+            onChange={(
+              e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
+            ) => {
+              setLength(Number(e.target.value));
+            }}
+            className="cursor-pointer p-1 w-24 sm:w-32"
+          />
+          <label
+            htmlFor="inputlengt"
+            className="p-1 text-sm sm:text-base whitespace-nowrap"
+          >
+            Length: {length}
+          </label>
+        </div>
+        <div className="flex items-center gap-x-2">
+          <input
+            type="checkbox"
+            id="charbox"
+            defaultChecked={hasChar}
+            onChange={() => setHasChar((old) => !old)}
+            className="cursor-pointer p-1 w-4 h-4"
+          />
+          <label htmlFor="charbox" className="p-1 text-sm sm:text-base">
+            Characters
+          </label>
+        </div>
+        <div className="flex items-center gap-x-2">
+          <input
+            type="checkbox"
+            id="numbox"
+            defaultChecked={hasNum}
+            onChange={() => setHasNum((old) => !old)}
+            className="cursor-pointer p-1 w-4 h-4"
+          />
+          <label
+            htmlFor="numbox"
+            className="p-1 text-sm sm:text-base transition-all duration-150 active:scale-95"
+          >
+            Numbers
+          </label>
+        </div>
       </div>
       <button
-        className="bg-blue-800/50 rounded-sm px-2 transition-all duration-150 active:scale-95"
+        className="bg-blue-800/50 rounded-sm px-3 py-2 text-sm sm:text-base transition-all duration-150 active:scale-95 hover:bg-blue-900/50 w-full sm:w-auto"
         onClick={passwordGenerator}
       >
-        Regenrate
+        Regenerate
       </button>
     </div>
   );

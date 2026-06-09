@@ -23,23 +23,25 @@ export default function PasswordInput({
   };
   return (
     <>
-      <input
-        type="text"
-        value={password}
-        ref={passwordRef}
-        onChange={(e) => {
-          setPassword(e.target.value);
-          // console.log(e.target.value);
-        }}
-        className="w-xl text-center text-2xl bg-slate-900/50 rounded-md p-4 focus:outline-none focus:bg-slate-700/50 transition-all duration-300"
-        name="passwordinput"
-      />
-      <button
-        className="bg-amber-500/50 text-2xl rounded-md p-4 ml-2 transition-all duration-150 active:scale-90 active:bg-amber-800"
-        onClick={handleCopy}
-      >
-        Copy
-      </button>
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 w-full max-w-2xl px-4">
+        <input
+          type="text"
+          value={password}
+          ref={passwordRef}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          className="flex-1 text-center text-xl sm:text-2xl bg-slate-900/50 rounded-md p-2 sm:p-4 focus:outline-none focus:bg-slate-700/50 transition-all duration-300"
+          name="passwordinput"
+          readOnly
+        />
+        <button
+          className="bg-amber-500/50 text-lg sm:text-2xl rounded-md p-2 sm:p-4 transition-all duration-150 active:scale-90 active:bg-amber-800 hover:bg-amber-600/50 whitespace-nowrap"
+          onClick={handleCopy}
+        >
+          Copy
+        </button>
+      </div>
     </>
   );
 }

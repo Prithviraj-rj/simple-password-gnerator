@@ -36,7 +36,7 @@ export function App() {
 
   return (
     <>
-      <div className="w-2xl text-center text-4xl bg-slate-900/50 rounded-md p-4 mb-2">
+      <div className="w-full max-w-2xl text-center text-2xl sm:text-3xl md:text-4xl bg-slate-900/50 rounded-md p-3 sm:p-4 mb-3 sm:mb-4 px-4">
         PASSWORD GENERATOR
       </div>
       <PasswordInput password={password} setPassword={setPassword} />
@@ -51,20 +51,21 @@ export function App() {
         setHasChar={setHasChar}
         setHasNum={setHasNum}
       />
-      <div className="mt-5 flex gap-x-2 justify-between">
+      <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row gap-2 sm:gap-2 w-full max-w-2xl px-4">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="bg-slate-700/50 rounded-sm text-center p-2  "
+          className="flex-1 bg-slate-700/50 rounded-sm text-center p-2 text-sm sm:text-base"
+          placeholder="Enter name"
         />
         <button
           onClick={handleGetGreet}
-          className="bg-yellow-500/50 rounded-sm text-center p-2"
+          className="bg-yellow-500/50 rounded-sm text-center p-2 text-sm sm:text-base hover:bg-yellow-600/50 transition-colors"
         >
           hello
         </button>
-        <p className="bg-amber-400/50 rounded-sm text-center p-2  ">
+        <p className="bg-amber-400/50 rounded-sm text-center p-2 text-sm sm:text-base flex-1 break-words">
           {" "}
           Greeting : {greet.message}
         </p>
