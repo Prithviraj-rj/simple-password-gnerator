@@ -12,7 +12,13 @@ export default function PasswordInput({
   const passwordRef: React.Ref<HTMLInputElement> = useRef(null);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(password);
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(password);
+    } else {
+      // Fallback for environments where Clipboard API is unavailable
+      passwordRef.current?.select();
+      document.execCommand("copy");
+    }
     passwordRef.current?.select();
   };
   return (
