@@ -35,8 +35,8 @@ export function App() {
   };
 
   return (
-    <>
-      <div className="w-full max-w-2xl text-center text-2xl sm:text-3xl md:text-4xl bg-slate-900/50 rounded-md p-3 sm:p-4 mb-3 sm:mb-4 px-4">
+    <div className="flex flex-col gap-3 sm:gap-4 w-full max-w-2xl">
+      <div className="text-center text-2xl sm:text-3xl md:text-4xl bg-slate-900/50 rounded-md p-3 sm:p-4 px-4">
         PASSWORD GENERATOR
       </div>
       <PasswordInput password={password} setPassword={setPassword} />
@@ -51,7 +51,7 @@ export function App() {
         setHasChar={setHasChar}
         setHasNum={setHasNum}
       />
-      <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row gap-2 sm:gap-2 w-full max-w-2xl px-4">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 w-full px-4">
         <input
           type="text"
           value={input}
@@ -70,7 +70,7 @@ export function App() {
           Greeting : {greet.message}
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
